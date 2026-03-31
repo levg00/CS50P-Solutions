@@ -1,0 +1,51 @@
+from datetime import date
+import datetime
+import re
+import sys
+import inflect
+p = inflect.engine()
+
+class Date:
+    def __sub__(self, other):
+        return self - other
+
+
+    @staticmethod
+    def get_today():
+        return datetime.date.today()
+
+
+    @staticmethod
+    def get_date(request_message, exit_message):
+        date = input(request_message).strip()
+        pattern = r"^([0-9]+)-([0-9]+)-([0-9]+)$"
+        if match := re.match(pattern, date):
+            year, month, day = int(match.group(1)), int(match.group(2)), int(match.group(3))
+            try:
+                datetime.date(year, month, day)
+                return datetime.date(year, month, day)
+            except ValueError:
+                sys.exit(exit_message)
+        else:
+            sys.exit(exit_message)
+
+
+    @staticmethod
+    def convert_to_minutes(time, decimal_places):
+        return(round(time.total_seconds()/60, decimal_places))
+
+
+    @staticmethod
+    def convert_min_to_text(min):
+        return p.number_to_words(min, andword="")
+
+
+def main():
+    birth_date = Date.get_date("Date of Birth: ", "Invalid date")
+    current_date = Date.get_today()
+    print(Date.convert_to_minutes(current_date - birth_date, 0))
+    print(Date.convert_min_to_text(1))
+
+
+if __name__ == "__main__":
+    main()

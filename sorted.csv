@@ -1,0 +1,9 @@
+Action,Amount,Description
++,$500.0,bonus
++,$300.0,salary
+-,$245.0,rent
+-,$100.0,phone
+
+FINAL BALANCE,,$455.0
+Average Income,,$400.0
+Average Expense,,$172.5
