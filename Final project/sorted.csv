@@ -1,0 +1,9 @@
+Action,Amount,Description
++,$500.0,div
++,$400.0,salary
+-,$200.0,jacket
+-,$100.0,rent
+
+FINAL BALANCE,,$600.0
+Average Income,,$450.0
+Average Expense,,$150.0
